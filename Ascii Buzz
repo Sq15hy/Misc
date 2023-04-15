@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string> 
+// Insert an Ascii string and if divisible by 3 5 or both it will either insert to beginning middle or end
+int main() {
+    // this is the ascii string the user inputs
+  std::string sequenceAscii;
+//this is the string that will print
+  std::string printString;
+  
+  //gets user ascii sequence
+  std::cout << "ENTER A SEQUENCE OF ASCII PRINTABLE CHARACTERS:" << "\n";
+  std::cin >> sequenceAscii;
+  //For loop runnign through each character of ascii input seeing if its divisible by 3 evenly, 5, or both 3 and 5.
+  for (int i = 0; i < sequenceAscii.size(); i++) {
+    if(int(sequenceAscii[i])%3 == 0 and int(sequenceAscii[i])%5 != 0){
+      printString.insert(0, 1, sequenceAscii[i]);
+      
+    }
+    if(int(sequenceAscii[i])%5 == 0 and int(sequenceAscii[i])%3 != 0){
+       printString.insert(printString.size(), 1, sequenceAscii[i]);
+    }
+    if(int(sequenceAscii[i])%3 == 0 and int(sequenceAscii[i])%5 == 0){
+      if(printString.size()%2 == 0){
+         //adds to the middle of the string
+        printString.insert((printString.size()/2), 1, sequenceAscii[i]);
+      }
+      else{
+        //adds to the middle of the string
+        printString.insert((printString.size()/2), 1, sequenceAscii[i]);
+        
+      }
+    }
+  }
+  std::cout << printString;
+  return 0;
+
+}
